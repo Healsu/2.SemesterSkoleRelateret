@@ -1,14 +1,21 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class sort {
     public static void main(String[] args) {
-        ArrayList<String> words = new ArrayList<>();
-        words.add("abekat");
-        words.add("musefælde");
-        words.add("ananas");
-        words.add("slut");
-        words.add("solskin");
+        String[] words = {"abekat","musefælde","ananas","slut","solskin"};
 
+        //Begin sorting the list by alphabetical order
+        Arrays.sort(words);
 
+        //Sorting the array using a for loop for every word in the array "words"
+        for (int i = 0, newSentence = words.length - 1; i < newSentence; i++, newSentence--) {
+            String result = words[i];
+            words[i] = words[newSentence];
+            words[newSentence] = result;
+    }
+        for(String val : words)
+            System.out.print(" "+val);
     }
 }
