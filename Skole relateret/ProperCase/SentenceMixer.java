@@ -4,12 +4,14 @@ import java.util.Scanner;
 
 public class SentenceMixer {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Write a sentence in: ");
         String sentence = scanner.nextLine();
 
         checkWord(sentence);
     }
+
     public static void checkWord(String sentence){
         String[] arrayList = sentence.split(" ");
 

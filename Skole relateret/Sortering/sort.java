@@ -15,6 +15,8 @@ public class sort {
             words[i] = words[newSentence];
             words[newSentence] = result;
     }
+        //We finish off by creating a for each loop for every element in the new array created
+        //in the earlier for-i loop
         for(String val : words)
             System.out.print(" "+val);
     }
