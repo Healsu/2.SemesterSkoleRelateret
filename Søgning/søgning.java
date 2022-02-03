@@ -15,6 +15,14 @@ public class søgning {
 
     }
     public static void wordCheck(String[] wordList){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What word will you check for in the string? ");
+        String userInput = scanner.nextLine();
 
+        for (int i = 0; i < wordList.length; i++) {
+            if (wordList[i].equalsIgnoreCase(userInput)){
+
+            }
+        }
     }
 }

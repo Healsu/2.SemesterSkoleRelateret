@@ -1,22 +1,25 @@
-public class myArray {
+import java.util.Arrays;
 
-    private int[] arr;
+public class myArray<T>
+{
+
+    private Object[] arr;
     private int arrayLength = 10;
     private int elements = 0;
 
     public myArray(){
-        arr = new int[arrayLength];
+        arr = new Object[10];
     }
 
     public int getElements(){
         return elements;
     }
 
-    public int get(int index){
-        return arr[index];
+    public T get(int index){
+        return (T) arr[index];
     }
 
-    public void add(int x){
+    public void add(T x){
         if(elements < arr.length){
             arr[elements] = x;
             elements++;
@@ -29,9 +32,19 @@ public class myArray {
 
     }
 
+    public void add(int index){
+
+    }
+    public void remove(int index){
+
+    }
+    public void clear(){
+
+    }
+
     private void increaseArrayLength(){
     int length = arr.length;
-    int[] arr2 = new int[length+10];
+    Object[] arr2 = new Object[length+10];
 
 
         for (int i = 0; i < (arr.length); i++) {
@@ -42,5 +55,18 @@ public class myArray {
 
 
 
+    }
+
+
+    public String toString() {
+        String str;
+
+        str = "[";
+        for (int i = 0; i < elements; i++) {
+           str = str + arr[i];
+           str = ", ";
+        }
+        str = str + "]";
+        return str;
     }
 }
