@@ -1,4 +1,7 @@
-import java.util.Arrays;
+package ArrayOpgaver;
+
+import ArrayOpgaver.myArray;
+
 import java.util.Random;
 
 public class prøve {

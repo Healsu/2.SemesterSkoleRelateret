@@ -1,3 +1,5 @@
+package ArrayOpgaver;
+
 import java.util.Arrays;
 
 public class myArray<T>
@@ -6,9 +8,11 @@ public class myArray<T>
     private Object[] arr;
     private int arrayLength = 10;
     private int elements = 0;
+    private int size;
 
     public myArray(){
         arr = new Object[10];
+        size = size+1;
     }
 
     public int getElements(){
@@ -29,15 +33,18 @@ public class myArray<T>
             arr[elements] = x;
             elements++;
         }
-
     }
 
-    public void add(int index){
-
+    public void add(int index){}
+    public boolean remove(int index) {
+        if (index < 0 || index >= size) return false;
+        for (int i=index; i < size; i++) {
+            arr[index] = arr[index+1];
+        }
+    return true;
     }
-    public void remove(int index){
 
-    }
+
     public void clear(){
 
     }
