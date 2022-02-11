@@ -2,53 +2,63 @@ package MobyDickOpgaver;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class prøveConvert {
 
+    static ArrayList<String> result = new ArrayList<>();
+    static MobyDickRedone moby = new MobyDickRedone();
+    static Set set = new HashSet();
+    static HashMap<String, Integer> hMap = new HashMap<String, Integer>();
 
     public static void main(String[] args) {
-        ArrayList<String> result = new ArrayList<>();
 
+        //Læser txt filen
         try{
-            BufferedReader reader = new BufferedReader(new FileReader("MobyDickOpgaver/txtFile.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("Skole Relatere (Februar - 2022)/src/MobyDickOpgaver/txtFile.txt"));
             String readLine;
 
+            //Fjerne mellemrum fra listen af arrayet
             while((readLine = reader.readLine()) != null){
                 String[] currentLine = readLine.split(" ");
-                convertWords(currentLine);
+                currentLine = moby.convertWords(currentLine);
 
 
+                //Tilføjer hvert ord i txt filen
                 for (int i = 0; i < currentLine.length; i++) {
-                    result.add(currentLine[i]);
+                    if(currentLine[i].equals("") == false) {
+                        result.add(currentLine[i]);
+                        set.add(currentLine[i]);
+                    }
 
                 }
             }
-            System.out.println(result);
-
-
 
         }
         catch(Exception e){
-
+            e.printStackTrace();
+            System.out.println("FILE NOT FOUND");
         }
 
 
+        addWordCounter();
+
+
         }
+        public static void addWordCounter(){
 
-
-        public static String[] convertWords(String[] arr){
-
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = arr[i].replaceAll("([^a-zA-Z])"," ");
-                arr[i] = arr[i].toLowerCase(Locale.ROOT);
+        //sorterer alle de forskellige ord ud fra hvor mange gange de bliver nævnt
+            for (int i = 0; i < result.size(); i++) {
+                if (hMap.containsKey(result.get(i))){
+                    hMap.put(result.get(i), (hMap.get(result.get(i)) +1 ));
+                }else{
+                    hMap.put(result.get(i), 1);
+                }
             }
-            return arr;
+            System.out.println(hMap);
         }
 }
+
 
 
 
